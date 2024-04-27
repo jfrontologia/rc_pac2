@@ -1,0 +1,600 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#"
+     xml:base="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:untitled-ontology-5="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5">
+        <competency_questions>What do customer&apos;s think about airline&apos;s quality service or what problem did they found?
+Do airline&apos;s staff satisfy customer&apos;s requeriments?
+Would the customer recommend airline&apos;s service?
+Ticket price fits with airline&apos;s quality service?</competency_questions>
+        <rdfs:comment>The current ontology is aimed to model flight satisfaction surveys to analyze customers&apos; reviews properly.</rdfs:comment>
+        <rdfs:label>Flight satisfaction survey</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#competency_questions -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#competency_questions"/>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#data_source -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#data_source"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#has_flown_from -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#has_flown_from">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#has_flown_to"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Passenger_information"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Origin"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#has_flown_to -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#has_flown_to">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Passenger_information"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Destination"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#redacts -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#redacts">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Passenger_information"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Comment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#rating -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#rating">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Rating"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:pattern>^([1-9]|10)$</xsd:pattern>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#verification_value -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#verification_value">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Verification"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:pattern>^(yes|no)$</xsd:pattern>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#A350 -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#A350">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Aircraft"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Aircraft -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Aircraft">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Trip_information"/>
+        <rdfs:comment>Aircraft model of the aeroplane used in the trip.</rdfs:comment>
+        <rdfs:label>Aircraft</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Boeing_777 -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Boeing_777">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Aircraft"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Boeing_777-300ER -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Boeing_777-300ER">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Boeing_777"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Boeing_789 -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Boeing_789">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Aircraft"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Boing_787 -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Boing_787">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Boeing_777"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Business_class -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Business_class">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Seat"/>
+        <rdfs:comment>Passenger has flown in a Business class seat.</rdfs:comment>
+        <rdfs:label>Business class</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Cabin_staff -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Cabin_staff">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Rating"/>
+        <rdfs:comment>Rating on the quality of the cabin staff.</rdfs:comment>
+        <rdfs:label>Cabin staff</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#City -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#City">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Trip_information"/>
+        <rdfs:comment>City with an airport related with the trip.</rdfs:comment>
+        <rdfs:label>City</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Comment -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Comment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Review_information"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#redacts"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Passenger_information"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Text explaining customer&apos;s experience with the airline.</rdfs:comment>
+        <rdfs:label>Comment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Comment_body -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Comment_body">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Comment"/>
+        <rdfs:comment>Comment text about the customer&apos;s experience with the airline services.</rdfs:comment>
+        <rdfs:label>Comment body</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Comment_title -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Comment_title">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Comment"/>
+        <rdfs:comment>Comment title given by the customer that summarizes the comment body.</rdfs:comment>
+        <rdfs:label>Comment title</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Country -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Country">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Passenger_information"/>
+        <rdfs:comment>Passenger&apos;s country or nationality.</rdfs:comment>
+        <rdfs:label>Country</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Couple_leisure -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Couple_leisure">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Passenger_type"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Solo_leisure"/>
+        <rdfs:label>Couple leisure</rdfs:label>
+        <rdfs:label>Customer travels in pair. Customer are two persons.</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Date_flown -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Date_flown">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Trip_information"/>
+        <rdfs:comment>Date when the trip has began.</rdfs:comment>
+        <rdfs:label>Date flown</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Date_published -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Date_published">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Review_information"/>
+        <rdfs:comment>Date when the survey is published by the customer.</rdfs:comment>
+        <rdfs:label>Date published</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Destination -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Destination">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#City"/>
+        <rdfs:comment>City with an airoport where the customer has landed and ended the trip.</rdfs:comment>
+        <rdfs:label>Destination</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Economy_class -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Economy_class">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Seat"/>
+        <rdfs:comment>Passenger has flown in an Economy class seat.</rdfs:comment>
+        <rdfs:label>Economy class</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Ground_staff -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Ground_staff">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Rating"/>
+        <rdfs:comment>Rating on the quality of the aircraft&apos;s ground staff.</rdfs:comment>
+        <rdfs:label>Ground staff</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Inflight_entertainment -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Inflight_entertainment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Rating"/>
+        <rdfs:comment>Rating on the quality of the aircraft&apos;s entertainment services.</rdfs:comment>
+        <rdfs:label>Inflight entertainment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Origin -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Origin">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#City"/>
+        <rdfs:comment>City with an airport where the customer has began its trip.</rdfs:comment>
+        <rdfs:label>Origin</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Overall -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Overall">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Rating"/>
+        <rdfs:comment>Overall rating. How would the customer score the trip, in general.</rdfs:comment>
+        <rdfs:label>Overall</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Passenger_information -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Passenger_information">
+        <rdfs:comment>Rellevant passenger data to profile it.</rdfs:comment>
+        <rdfs:label>Passenger information</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Passenger_type -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Passenger_type">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Passenger_information"/>
+        <rdfs:label>Passenger type</rdfs:label>
+        <rdfs:label>Type of customer or passenger.</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Rating -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Rating">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Review_information"/>
+        <rdfs:comment>Score given by the customer to the provided services.</rdfs:comment>
+        <rdfs:label>Rating</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Recommended -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Recommended">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Review_information"/>
+        <rdfs:comment>Customer would recommend the airline company.</rdfs:comment>
+        <rdfs:label>Recommended</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Review_information -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Review_information">
+        <rdfs:comment>Customer&apos;s experience feedback and technical information it.</rdfs:comment>
+        <rdfs:label>Review information</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Seat -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Seat">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Trip_information"/>
+        <rdfs:comment>Seat type used by the customer.</rdfs:comment>
+        <rdfs:label>Seat</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Seat_comfort -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Seat_comfort">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Rating"/>
+        <rdfs:label>Seat comfort</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Solo_leisure -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Solo_leisure">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Passenger_type"/>
+        <rdfs:label>Customer travels alone. Customer is a single person.</rdfs:label>
+        <rdfs:label>Solo leisure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Trip_information -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Trip_information">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Recommended"/>
+        <rdfs:comment>Information related to the trip, to identify all rellevant data of the flight.</rdfs:comment>
+        <rdfs:label>Trip information</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Trip_not_verified -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Trip_not_verified">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Verification"/>
+        <rdfs:comment>Trip has been verified</rdfs:comment>
+        <rdfs:label>Trip not verified</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Trip_verified -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Trip_verified">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Verification"/>
+        <rdfs:comment>Trip has not been verified</rdfs:comment>
+        <rdfs:label>Trip verified</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Value_for_money -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Value_for_money">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Rating"/>
+        <rdfs:comment>Rating on the quality of the trip compared with the ticket&apos;s price.</rdfs:comment>
+        <rdfs:label>Value for money</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Verification -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Verification">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Trip_information"/>
+        <rdfs:comment>Trip is verificated to prove if the customer has really travelled.</rdfs:comment>
+        <rdfs:label>Verification</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Food_&amp;_beverages -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Food_&amp;_beverages">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Rating"/>
+        <rdfs:comment>Rating on the quality of food and beverages served in the trip.</rdfs:comment>
+        <rdfs:label>Food &amp; beverages</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Wifi_&amp;_connectivity -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Wifi_&amp;_connectivity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Rating"/>
+        <rdfs:comment>Rating on the quality of the aircraft&apos;s network.</rdfs:comment>
+        <rdfs:label>Wifi &amp; connectivity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Comment_pass1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Comment_pass1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Comment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Passenger1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Passenger1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Passenger_information"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Rating_cabin_pass1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Rating_cabin_pass1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Cabin_staff"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/ -->
+
+
