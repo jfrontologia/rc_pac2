@@ -1,0 +1,155 @@
+{
+  "@context" : {
+    "Inflight_entertainment" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Inflight_entertainment"
+    },
+    "Ground_staff" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Ground_staff"
+    },
+    "Verification" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Verification"
+    },
+    "Cabin_staff" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Cabin_staff"
+    },
+    "Country" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Country"
+    },
+    "Comment" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Comment"
+    },
+    "Recommended" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Recommended"
+    },
+    "topDataProperty" : {
+      "@id" : "http://www.w3.org/2002/07/owl#topDataProperty"
+    },
+    "isRuleEnabled" : {
+      "@id" : "http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"
+    },
+    "_beverages" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Food_&_beverages"
+    },
+    "Economy_class" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Economy_class"
+    },
+    "Medium" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Medium"
+    },
+    "label" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "Date_flown" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Date_flown"
+    },
+    "Destination" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Destination"
+    },
+    "Overall" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Overall"
+    },
+    "Origin" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Origin"
+    },
+    "Trip_verified" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Trip_verified"
+    },
+    "Overview" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Overview"
+    },
+    "has_flown_from" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#has_flown_from",
+      "@type" : "@id"
+    },
+    "has_flown_to" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#has_flown_to",
+      "@type" : "@id"
+    },
+    "Passenger_information" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Passenger_information"
+    },
+    "topObjectProperty" : {
+      "@id" : "http://www.w3.org/2002/07/owl#topObjectProperty",
+      "@type" : "@id"
+    },
+    "redacts" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#redacts",
+      "@type" : "@id"
+    },
+    "_connectivity" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Wifi_&_connectivity"
+    },
+    "Comment_title" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Comment_title"
+    },
+    "Passenger" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Passenger"
+    },
+    "Trip_not_verified" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Trip_not_verified"
+    },
+    "Seat" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Seat"
+    },
+    "High" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#High"
+    },
+    "Rating" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Rating"
+    },
+    "Solo_leisure" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Solo_leisure"
+    },
+    "Aircraft" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Aircraft"
+    },
+    "data_source" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#data_source"
+    },
+    "Couple_leisure" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Couple_leisure"
+    },
+    "Date_published" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Date_published"
+    },
+    "Review_information" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Review_information"
+    },
+    "City_airport" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#City_airport"
+    },
+    "verification_value" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#verification_value"
+    },
+    "Trip_information" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Trip_information"
+    },
+    "Low" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Low"
+    },
+    "sameAs" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#sameAs"
+    },
+    "comment" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
+    },
+    "rating" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#rating"
+    },
+    "Business_class" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Business_class"
+    },
+    "Comment_body" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Comment_body"
+    },
+    "Seat_comfort" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Seat_comfort"
+    },
+    "competency_questions" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#competency_questions"
+    },
+    "Value_for_money" : {
+      "@id" : "http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Value_for_money"
+    }
+  }
+}

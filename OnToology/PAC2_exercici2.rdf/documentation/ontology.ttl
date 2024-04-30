@@ -1,0 +1,552 @@
+@prefix : <http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#> .
+
+<http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5> rdf:type owl:Ontology ;
+                                                                         :competency_questions """What do customer's think about airline's quality service or what problem did they found?
+Do airline's staff satisfy customer's requeriments?
+Would the customer recommend airline's service?
+Ticket price fits with airline's quality service?""" ;
+                                                                         rdfs:comment "The current ontology is aimed to model flight satisfaction surveys to analyze customers' reviews properly." ;
+                                                                         rdfs:label "Flight satisfaction survey" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#competency_questions
+:competency_questions rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#data_source
+:data_source rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#sameAs
+rdfs:sameAs rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#has_flown_from
+:has_flown_from rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdfs:domain :Passenger ;
+                rdfs:range :Origin .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#has_flown_to
+:has_flown_to rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :Passenger ;
+              rdfs:range :Destination .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#redacts
+:redacts rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdfs:domain :Passenger ;
+         rdfs:range :Comment .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#rating
+:rating rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf owl:topDataProperty ;
+        rdfs:domain :Rating ;
+        rdfs:range [ rdf:type rdfs:Datatype ;
+                     owl:datatypeComplementOf [ rdf:type rdfs:Datatype ;
+                                                owl:onDatatype xsd:integer ;
+                                                owl:withRestrictions ( [ xsd:minExclusive 10
+                                                                       ]
+                                                                     )
+                                              ]
+                   ] ,
+                   [ rdf:type rdfs:Datatype ;
+                     owl:onDatatype xsd:integer ;
+                     owl:withRestrictions ( [ xsd:minInclusive 1
+                                            ]
+                                          )
+                   ] .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#verification_value
+:verification_value rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf owl:topDataProperty ;
+                    rdfs:domain :Verification ;
+                    rdfs:range [ rdf:type rdfs:Datatype ;
+                                 owl:onDatatype xsd:string ;
+                                 owl:withRestrictions ( [ xsd:pattern "^(yes|no)$"
+                                                        ]
+                                                      )
+                               ] .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Aircraft
+:Aircraft rdf:type owl:Class ;
+          rdfs:subClassOf :Trip_information ;
+          rdfs:comment "Aircraft model of the aeroplane used in the trip." ;
+          rdfs:label "Aircraft" ;
+          rdfs:sameAs "https://dbpedia.org/ontology/Aircraft" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Business_class
+:Business_class rdf:type owl:Class ;
+                rdfs:subClassOf :Seat ;
+                rdfs:comment "Passenger has flown in a Business class seat." ;
+                rdfs:label "Business class" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Cabin_staff
+:Cabin_staff rdf:type owl:Class ;
+             rdfs:subClassOf :Rating ;
+             rdfs:comment "Rating on the quality of the cabin staff." ;
+             rdfs:label "Cabin staff" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#City_airport
+:City_airport rdf:type owl:Class ;
+              rdfs:subClassOf :Trip_information ;
+              rdfs:comment "City with an airport related with the trip." ;
+              rdfs:label "City Airport" ;
+              rdfs:sameAs "https://dbpedia.org/ontology/Airport" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Comment
+:Comment rdf:type owl:Class ;
+         rdfs:subClassOf :Review_information ;
+         rdfs:comment "Text explaining customer's experience with the airline." ;
+         rdfs:label "Comment" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Comment_body
+:Comment_body rdf:type owl:Class ;
+              rdfs:subClassOf :Comment ;
+              rdfs:comment "Comment text about the customer's experience with the airline services." ;
+              rdfs:label "Comment body" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Comment_title
+:Comment_title rdf:type owl:Class ;
+               rdfs:subClassOf :Comment ;
+               rdfs:comment "Comment title given by the customer that summarizes the comment body." ;
+               rdfs:label "Comment title" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Country
+:Country rdf:type owl:Class ;
+         rdfs:subClassOf :Passenger_information ;
+         rdfs:comment "Passenger's country or nationality." ;
+         rdfs:label "Country" ;
+         rdfs:sameAs "https://dbpedia.org/ontology/Country" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Couple_leisure
+:Couple_leisure rdf:type owl:Class ;
+                rdfs:subClassOf :Passenger ;
+                owl:disjointWith :Solo_leisure ;
+                rdfs:comment "Customer travels in pair. Customer are two persons." ;
+                rdfs:label "Couple leisure" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Date_flown
+:Date_flown rdf:type owl:Class ;
+            rdfs:subClassOf :Trip_information ;
+            rdfs:comment "Date when the trip has began." ;
+            rdfs:label "Date flown" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Date_published
+:Date_published rdf:type owl:Class ;
+                rdfs:subClassOf :Review_information ;
+                rdfs:comment "Date when the survey is published by the customer." ;
+                rdfs:label "Date published" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Destination
+:Destination rdf:type owl:Class ;
+             rdfs:subClassOf :City_airport ;
+             rdfs:comment "City with an airoport where the customer has landed and ended the trip." ;
+             rdfs:label "Destination" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Economy_class
+:Economy_class rdf:type owl:Class ;
+               rdfs:subClassOf :Seat ;
+               rdfs:comment "Passenger has flown in an Economy class seat." ;
+               rdfs:label "Economy class" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Ground_staff
+:Ground_staff rdf:type owl:Class ;
+              rdfs:subClassOf :Rating ;
+              rdfs:comment "Rating on the quality of the aircraft's ground staff." ;
+              rdfs:label "Ground staff" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#High
+:High rdf:type owl:Class ;
+      rdfs:subClassOf :Overview .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Inflight_entertainment
+:Inflight_entertainment rdf:type owl:Class ;
+                        rdfs:subClassOf :Rating ;
+                        rdfs:comment "Rating on the quality of the aircraft's entertainment services." ;
+                        rdfs:label "Inflight entertainment" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Low
+:Low rdf:type owl:Class ;
+     rdfs:subClassOf :Overview .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Medium
+:Medium rdf:type owl:Class ;
+        rdfs:subClassOf :Overview .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Origin
+:Origin rdf:type owl:Class ;
+        rdfs:subClassOf :City_airport ;
+        rdfs:comment "City with an airport where the customer has began its trip." ;
+        rdfs:label "Origin" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Overall
+:Overall rdf:type owl:Class ;
+         rdfs:subClassOf :Rating ;
+         rdfs:comment "Overall rating. How would the customer score the trip, in general." ;
+         rdfs:label "Overall" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Overview
+:Overview rdf:type owl:Class ;
+          rdfs:subClassOf :Review_information .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Passenger
+:Passenger rdf:type owl:Class ;
+           rdfs:subClassOf :Passenger_information ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :has_flown_from ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :Origin
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :has_flown_to ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :Destination
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :redacts ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :Comment
+                           ] ;
+           rdfs:comment "Customer who has flown with the airline." ;
+           rdfs:label "Passenger" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Passenger_information
+:Passenger_information rdf:type owl:Class ;
+                       rdfs:comment "Rellevant passenger data to profile it." ;
+                       rdfs:label "Passenger information" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Rating
+:Rating rdf:type owl:Class ;
+        rdfs:subClassOf :Review_information ;
+        rdfs:comment "Score given by the customer to the provided services." ;
+        rdfs:label "Rating" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Recommended
+:Recommended rdf:type owl:Class ;
+             rdfs:subClassOf :Review_information ;
+             rdfs:comment "Customer would recommend the airline company." ;
+             rdfs:label "Recommended" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Review_information
+:Review_information rdf:type owl:Class ;
+                    rdfs:comment "Customer's experience feedback and technical information it." ;
+                    rdfs:label "Review information" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Seat
+:Seat rdf:type owl:Class ;
+      rdfs:subClassOf :Trip_information ;
+      rdfs:comment "Seat type used by the customer." ;
+      rdfs:label "Seat" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Seat_comfort
+:Seat_comfort rdf:type owl:Class ;
+              rdfs:subClassOf :Rating ;
+              rdfs:label "Seat comfort" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Solo_leisure
+:Solo_leisure rdf:type owl:Class ;
+              rdfs:subClassOf :Passenger ;
+              rdfs:label "Customer travels alone. Customer is a single person." ,
+                         "Solo leisure" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Trip_information
+:Trip_information rdf:type owl:Class ;
+                  rdfs:comment "Information related to the trip, to identify all rellevant data of the flight." ;
+                  rdfs:label "Trip information" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Trip_not_verified
+:Trip_not_verified rdf:type owl:Class ;
+                   rdfs:subClassOf :Verification ;
+                   rdfs:comment "Trip has been verified" ;
+                   rdfs:label "Trip not verified" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Trip_verified
+:Trip_verified rdf:type owl:Class ;
+               rdfs:subClassOf :Verification ;
+               rdfs:comment "Trip has not been verified" ;
+               rdfs:label "Trip verified" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Value_for_money
+:Value_for_money rdf:type owl:Class ;
+                 rdfs:subClassOf :Rating ;
+                 rdfs:comment "Rating on the quality of the trip compared with the ticket's price." ;
+                 rdfs:label "Value for money" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Verification
+:Verification rdf:type owl:Class ;
+              rdfs:subClassOf :Trip_information ;
+              rdfs:comment "Trip is verificated to prove if the customer has really travelled." ;
+              rdfs:label "Verification" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Food_&_beverages
+<http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Food_&_beverages> rdf:type owl:Class ;
+                                                                                         rdfs:subClassOf :Rating ;
+                                                                                         rdfs:comment "Rating on the quality of food and beverages served in the trip." ;
+                                                                                         rdfs:label "Food & beverages" .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Wifi_&_connectivity
+<http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Wifi_&_connectivity> rdf:type owl:Class ;
+                                                                                            rdfs:subClassOf :Rating ;
+                                                                                            rdfs:comment "Rating on the quality of the aircraft's network." ;
+                                                                                            rdfs:label "Wifi & connectivity" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Angers
+:Angers rdf:type owl:NamedIndividual ,
+                 :City_airport .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Comment_pass1
+:Comment_pass1 rdf:type owl:NamedIndividual ,
+                        :Comment .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Dublin
+:Dublin rdf:type owl:NamedIndividual ,
+                 :City_airport .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Passenger1
+:Passenger1 rdf:type owl:NamedIndividual ,
+                     :Passenger ;
+            :has_flown_from :Dublin ;
+            :has_flown_to :Angers ;
+            :redacts :Comment_pass1 .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Rating_cabin_pass1
+:Rating_cabin_pass1 rdf:type owl:NamedIndividual ,
+                             :Cabin_staff .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Rating_overall1
+:Rating_overall1 rdf:type owl:NamedIndividual ,
+                          :Overall ;
+                 :rating 9 .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Rating_overall2
+:Rating_overall2 rdf:type owl:NamedIndividual ,
+                          :Overall ;
+                 :rating 6 .
+
+
+###  http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5#Rating_overall3
+:Rating_overall3 rdf:type owl:NamedIndividual ,
+                          :Overall ;
+                 :rating 3 .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+<http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5/o> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5/r> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#o> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#r> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S1" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Overall ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5/o>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :rating ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5/o> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5/r>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThanOrEqual> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first <http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5/r> ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 8 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :High ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/juan/ontologies/2024/3/untitled-ontology-5/o>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S2" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Overall ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#o>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :rating ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#o> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#r>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThanOrEqual> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first <urn:swrl:var#r> ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 5 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first <urn:swrl:var#r> ;
+                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first 8 ;
+                                                                                                                                                rdf:rest rdf:nil
+                                                                                                                                              ]
+                                                                                                                                   ]
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Medium ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#o>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S3" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Overall ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#o>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :rating ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#o> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#r>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first <urn:swrl:var#r> ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 5 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Low ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#o>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
